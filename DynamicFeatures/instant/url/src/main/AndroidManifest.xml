@@ -35,6 +35,7 @@
         <activity
             android:name="com.android.samples.instantdynamicfeatures.UrlInstantModuleActivity"
             android:label="@string/title_activity_url_instant_module"
+            android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter
                 android:autoVerify="true"

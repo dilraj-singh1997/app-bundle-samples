@@ -30,7 +30,8 @@
     </dist:module>
 
     <application>
-        <activity android:name="com.google.android.samples.dynamicfeatures.ondemand.MaxSdkSampleActivity">
+        <activity android:name="com.google.android.samples.dynamicfeatures.ondemand.MaxSdkSampleActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
