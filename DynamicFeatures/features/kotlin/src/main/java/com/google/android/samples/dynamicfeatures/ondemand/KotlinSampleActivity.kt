@@ -1,7 +1,11 @@
 package com.google.android.samples.dynamicfeatures.ondemand
 
+import android.app.PictureInPictureParams
+import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.util.Rational
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -143,5 +147,27 @@ class KotlinSampleActivity : BaseSplitActivity() {
         else -> ""
     }
 
+    override fun onUserLeaveHint() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            enterPictureInPictureMode(
+                PictureInPictureParams.Builder()
+                    .setAspectRatio(Rational(9, 16))
+                    .also {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                            it.setAutoEnterEnabled(true)
+                        }
+                    }
+                    .build()
+            )
+        }
+    }
 
+    override fun onPictureInPictureModeChanged(
+        isInPictureInPictureMode: Boolean,
+        newConfig: Configuration
+    ) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+        }
+    }
 }
