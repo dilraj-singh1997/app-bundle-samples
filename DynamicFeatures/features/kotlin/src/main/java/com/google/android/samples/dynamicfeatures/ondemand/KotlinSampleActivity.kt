@@ -174,7 +174,7 @@ class KotlinSampleActivity : BaseSplitActivity() {
     }
 
     override fun onPictureInPictureUiStateChanged(pipState: PictureInPictureUiState) {
-        super.onPictureInPictureUiStateChanged(pipState)
         SplitCompat.installActivity(this)
+        super.onPictureInPictureUiStateChanged(pipState)
     }
 }
