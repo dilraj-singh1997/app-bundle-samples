@@ -1,6 +1,7 @@
 package com.google.android.samples.dynamicfeatures.ondemand
 
 import android.app.PictureInPictureParams
+import android.app.PictureInPictureUiState
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_SETTLING
+import com.google.android.play.core.splitcompat.SplitCompat
 import com.google.android.samples.dynamicfeatures.BaseSplitActivity
 import com.google.android.samples.dynamicfeatures.ondemand.kotlin.databinding.ActivityMainKotlinBinding
 import com.google.android.samples.dynamicfeatures.ondemand.sideeffects.MainActivitySideEffect
@@ -169,5 +171,10 @@ class KotlinSampleActivity : BaseSplitActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
         }
+    }
+
+    override fun onPictureInPictureUiStateChanged(pipState: PictureInPictureUiState) {
+        super.onPictureInPictureUiStateChanged(pipState)
+        SplitCompat.installActivity(this)
     }
 }
