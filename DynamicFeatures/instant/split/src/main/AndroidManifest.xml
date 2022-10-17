@@ -32,7 +32,8 @@
     </dist:module>
 
     <application>
-        <activity android:name="com.google.android.samples.instantdynamicfeatures.SplitInstallInstantActivity"></activity>
+        <activity android:name="com.google.android.samples.instantdynamicfeatures.SplitInstallInstantActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
